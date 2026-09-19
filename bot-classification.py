@@ -166,7 +166,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 def main():
-    app = ApplicationBuilder().token(TOKEN).build()
+    app = ApplicationBuilder().token(TOKEN).connect_timeout(30).read_timeout(30).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("tatuadores", tatuadores))
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
